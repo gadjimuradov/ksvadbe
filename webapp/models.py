@@ -97,6 +97,30 @@ class Role(db.Model):
         return '<Role {}>'.format(self.name)
 
 
+
+class Product(db.Model):
+    id = db.Column(db.Integer(), primary_key=True)
+    title = db.Column(db.String(255))
+    price = db.Column(db.Numeric(10,2))
+
+
+    def __init__(self,title):
+        self.title = title
+
+    def __repr__(self):
+        return "<Product '{}'>".format(self.title)
+
+class Category(db.Model):
+    id = db.Column(db.Integer(), primary_key=True)
+    title = db.Column(db.String(255))
+
+    def __init__(self,title):
+        self.title = title
+
+    def __repr__(self):
+        return "<Category '{}'>".format(self.title)    
+
+
 class Post(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     title = db.Column(db.String(255))
